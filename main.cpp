@@ -48,8 +48,8 @@ int main(int argc, char *argv[])
     Analayzer analayzer;
 
     //данные для C44020
-    const QString IP_TX = "127.0.0.1";
-    const int PORT_TX = 5025;
+    //const QString IP_TX = "127.0.0.1";
+    //const int PORT_TX = 5025;
 
     //Если выбран Anritsu меняем
 //    if(mainwindow.ui->cmbType->count()){
@@ -75,17 +75,22 @@ int main(int argc, char *argv[])
     //для отображения информаци о подключении
     QObject::connect(&settingdialog, SIGNAL(sgn_show_StatusMessage(QString)), &mainwindow, SLOT(showStatusMessage(QString)));
 
+    //
     QObject::connect(&mainwindow, SIGNAL(sgn_show_settingdialog()), &settingdialog, SLOT(slt_show()));
 
+    //
     QObject::connect(&mainwindow, SIGNAL(sgn_open_tcpsocket(int)), &analayzer, SLOT(connectToHost(int)));
     QObject::connect(&mainwindow, SIGNAL(sgn_show_analayzer()),&analayzer,SLOT(slt_show()));
 
+    //
     QObject::connect(&mainwindow, SIGNAL(sgn_setcommand(QString)),&analayzer,SLOT(setcommand(QString)));
     QObject::connect(&mainwindow, SIGNAL(sgn_hold_analayzer(QString)),&analayzer,SLOT(Hold()));
     QObject::connect(&mainwindow, SIGNAL(sgn_cont_analayzer(QString)),&analayzer,SLOT(Cont()));
 
+    //
     QObject::connect(&mainwindow, SIGNAL(sgn_S12()),&analayzer,SLOT(S12()));
 
+    //sdadasdad
     QObject::connect(&mainwindow, SIGNAL(sgn_S21()),&analayzer,SLOT(S21()));
     QObject::connect(&mainwindow, SIGNAL(sgn_freq_range(int)),&analayzer,SLOT(SetFreq(int)));
 
