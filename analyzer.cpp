@@ -1,7 +1,8 @@
 #include"analayzer.h"
 #include "mainwindow.h"
 #include "ui_analayzer.h"
-
+#include <QTime>
+#include <QDir>
 //Конструктор
 Analayzer::Analayzer(QWidget *parent):
     m_ui(new Ui::analayzer)
@@ -163,11 +164,18 @@ void Analayzer::connectToHost(int currnttype){
 
             //7. ВЧ выход – выкл
             setcommand(":OUTP OFF\n");//для включения setcommand(":OUTP ON\n");
-            break;
-        case Type::Unknow:
-            type = Type::Unknow;
-            break;
-        default:
+
+            QDateTime dt2 = QDateTime::currentDateTime();
+            //qDebug() << dt2.toString("yyyy_MM_dd");
+
+            QTime dt1 = QTime::currentTime();
+            //qDebug() << dt1.toString("hh_mm_ss");
+
+            QString relativePath = "Data/"+dt2.toString("yyyy_MM_dd") + "_" + dt1.toString("hh_mm_ss") + ".csv";
+            QString SaveCSV = ":MMEM:STOR:FDAT '" + QDir::currentPath() + "/" + relativePath + "'\n";
+            //SaveCSV = ":MMEMory:STORe '\\Turntable\\" + dt2.toString("yyyy_MM_dd") + "_" + dt1.toString("hh_mm_ss") + ".csv'\n";
+            qDebug()<<SaveCSV;
+            setcommand(SaveCSV);
             break;
     }
 }

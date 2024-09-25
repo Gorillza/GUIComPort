@@ -1,16 +1,16 @@
 <!DOCTYPE RCC><RCC version="1.0">
 <qresource prefix="/">
-<file alias="images/all_X.png">C:/Users/a.barsegyan/Documents/WORK/GUIComPort/images/all_X.png</file>
-<file alias="images/analayzer.png">C:/Users/a.barsegyan/Documents/WORK/GUIComPort/images/analayzer.png</file>
-<file alias="images/anritsu.png">C:/Users/a.barsegyan/Documents/WORK/GUIComPort/images/anritsu.png</file>
-<file alias="images/application-exit.png">C:/Users/a.barsegyan/Documents/WORK/GUIComPort/images/application-exit.png</file>
-<file alias="images/clear.png">C:/Users/a.barsegyan/Documents/WORK/GUIComPort/images/clear.png</file>
-<file alias="images/connect.png">C:/Users/a.barsegyan/Documents/WORK/GUIComPort/images/connect.png</file>
-<file alias="images/connectors.png">C:/Users/a.barsegyan/Documents/WORK/GUIComPort/images/connectors.png</file>
-<file alias="images/disconnect.png">C:/Users/a.barsegyan/Documents/WORK/GUIComPort/images/disconnect.png</file>
-<file alias="images/dragon.png">C:/Users/a.barsegyan/Documents/WORK/GUIComPort/images/dragon.png</file>
-<file alias="images/settings.png">C:/Users/a.barsegyan/Documents/WORK/GUIComPort/images/settings.png</file>
-<file alias="images/X2.png">C:/Users/a.barsegyan/Documents/WORK/GUIComPort/images/X2.png</file>
-<file alias="images/XX.png">C:/Users/a.barsegyan/Documents/WORK/GUIComPort/images/XX.png</file>
+<file alias="images/all_X.png">C:/Users/a.barsegyan/Documents/WORK/git_clone/GUIComPort/images/all_X.png</file>
+<file alias="images/analayzer.png">C:/Users/a.barsegyan/Documents/WORK/git_clone/GUIComPort/images/analayzer.png</file>
+<file alias="images/anritsu.png">C:/Users/a.barsegyan/Documents/WORK/git_clone/GUIComPort/images/anritsu.png</file>
+<file alias="images/application-exit.png">C:/Users/a.barsegyan/Documents/WORK/git_clone/GUIComPort/images/application-exit.png</file>
+<file alias="images/clear.png">C:/Users/a.barsegyan/Documents/WORK/git_clone/GUIComPort/images/clear.png</file>
+<file alias="images/connect.png">C:/Users/a.barsegyan/Documents/WORK/git_clone/GUIComPort/images/connect.png</file>
+<file alias="images/connectors.png">C:/Users/a.barsegyan/Documents/WORK/git_clone/GUIComPort/images/connectors.png</file>
+<file alias="images/disconnect.png">C:/Users/a.barsegyan/Documents/WORK/git_clone/GUIComPort/images/disconnect.png</file>
+<file alias="images/dragon.png">C:/Users/a.barsegyan/Documents/WORK/git_clone/GUIComPort/images/dragon.png</file>
+<file alias="images/settings.png">C:/Users/a.barsegyan/Documents/WORK/git_clone/GUIComPort/images/settings.png</file>
+<file alias="images/X2.png">C:/Users/a.barsegyan/Documents/WORK/git_clone/GUIComPort/images/X2.png</file>
+<file alias="images/XX.png">C:/Users/a.barsegyan/Documents/WORK/git_clone/GUIComPort/images/XX.png</file>
 </qresource>
 </RCC>
