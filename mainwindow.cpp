@@ -100,7 +100,6 @@ void MainWindow::showStatusMessage(const QString &message)
 {
     status->setText(message);
 }
-
 //------------------------------------------------------------------------------------------------------------------------
 void MainWindow::filltxtoutput(const QByteArray data){
     ui->txtOutput->append("Мы приняли:");

@@ -20,6 +20,9 @@ Analayzer::~Analayzer(){
 void Analayzer::on_applyButton_clicked(){
     updatesettings();
     setportsParameters();
+    setcommand(":CALC:TRAC1:MATH:MEM;:CALC:TRAC2:MATH:MEM;:CALC:TRAC3:MATH:MEM;:CALC:TRAC4:MATH:MEM\n");
+    delay(1000);
+    setcommand(":CALC:TRAC1:MATH:FUNC DIVide;:CALC:TRAC2:MATH:FUNC DIVide;:CALC:TRAC3:MATH:FUNC DIVide;:CALC:TRAC4:MATH:FUNC DIVide\n");
 }
 
 //Слот для показа GUI и заполнения
@@ -68,7 +71,7 @@ QByteArray Analayzer::readyReadSlot(){
 //------------------------------------------------------------------------------------
 
 void Analayzer::connectToHost(int currnttype){
-    socket->disconnectFromHost();
+    //socket->disconnectFromHost();
 
     switch (currnttype) {
         case Type::Anritsu:
@@ -154,11 +157,12 @@ void Analayzer::connectToHost(int currnttype){
             SetAverCOUNT("20");
             settings.aver_count = "20";
 
-            //6. ВЧ выход – выкл
-            setcommand(":OUTP OFF\n");//для включения setcommand(":OUTP ON\n");
-
-            //7. Запомнить состояние графиков и включить «Данные/Память» для всех графиков.
+            //6. Запомнить состояние графиков и включить «Данные/Память» для всех графиков.
             setcommand(":CALC:TRAC1:MATH:MEM;:CALC:TRAC2:MATH:MEM;:CALC:TRAC3:MATH:MEM;:CALC:TRAC4:MATH:MEM\n");
+            setcommand(":CALC:TRAC1:MATH:FUNC DIVide;:CALC:TRAC2:MATH:FUNC DIVide;:CALC:TRAC3:MATH:FUNC DIVide;:CALC:TRAC4:MATH:FUNC DIVide\n");
+
+            //7. ВЧ выход – выкл
+            setcommand(":OUTP OFF\n");//для включения setcommand(":OUTP ON\n");
             break;
         case Type::Unknow:
             type = Type::Unknow;
@@ -250,7 +254,7 @@ void Analayzer::Hold(){
             Hold = ":SENSe:HOLD:FUNCtion HOLD\n";
             break;
         case Type::Planar:
-            Hold = ":INIT:CONT OFF\n";  // Остановка индикации
+            Hold = ":OUTP OFF\n";  // Остановка индикации
             break;
         case Type::Unknow:
             //Hold = hold;
@@ -268,7 +272,7 @@ void Analayzer::Cont(){
             setcommand(Cont);
             break;
         case Type::Planar:
-            Cont = ":INIT:CONT ON\n";  // Продолжение индикации
+            Cont = ":OUTP ON\n";  // Продолжение индикации
             setcommand(Cont);
             break;
         case Type::Unknow:
