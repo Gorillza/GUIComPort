@@ -165,21 +165,10 @@ void Analayzer::connectToHost(int currnttype){
             //7. ВЧ выход – выкл
             setcommand(":OUTP OFF\n");//для включения setcommand(":OUTP ON\n");
 
-            QDateTime dt2 = QDateTime::currentDateTime();
-            //qDebug() << dt2.toString("yyyy_MM_dd");
-
-            QTime dt1 = QTime::currentTime();
-            //qDebug() << dt1.toString("hh_mm_ss");
-
-            QString relativePath = "Data/"+dt2.toString("yyyy_MM_dd") + "_" + dt1.toString("hh_mm_ss") + ".csv";
-            QString SaveCSV = ":MMEM:STOR:FDAT '" + QDir::currentPath() + "/" + relativePath + "'\n";
-            //SaveCSV = ":MMEMory:STORe '\\Turntable\\" + dt2.toString("yyyy_MM_dd") + "_" + dt1.toString("hh_mm_ss") + ".csv'\n";
-            qDebug()<<SaveCSV;
-            setcommand(SaveCSV);
+            setcommand(":MMEM:STOR:FDAT:SCOP ALL\n");
             break;
     }
 }
-
 
 //Команды которые могут быть использованы исключительно для Anritsu
 void Analayzer::R1C1(){
@@ -225,6 +214,21 @@ void Analayzer::Data(){
 
 //------------------------------------------------------------------------------------
 //активно используемые функции для управления анализатором
+void Analayzer::Memory_store(QString str){
+    QString memory = "";
+    switch(type){
+        case Type::Anritsu:
+            memory = ":MMEMory:STORe '"+ QDir::currentPath() + "/Data/" + str+".csv' \n";
+            break;
+        case Type::Planar:
+            memory = ":MMEM:STOR:FDAT '"+ QDir::currentPath() + "/Data/" + str+".csv'\n";;
+            break;
+        case Type::Unknow:
+            break;
+    }
+    setcommand(memory);
+}
+
 void Analayzer::S21(){    
     QString S21 = "";
     switch(type){

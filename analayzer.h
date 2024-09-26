@@ -82,6 +82,7 @@ public slots:
     void AverTYP();
     void AverON();
 
+    void Memory_store(QString);
 
 
 private slots:

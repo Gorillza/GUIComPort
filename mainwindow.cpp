@@ -187,7 +187,8 @@ void MainWindow::Range(uint8_t range,uint8_t att , uint8_t pv, uint8_t pm618, ui
             SendMassage(BM.Getdata());
             delay(700);
             //Сохранили в папку в формате CSV
-            emit sgn_setcommand(":MMEMory:STORe 'C:/pro/"+diapason+"_k"+QString::number(bitRead(BM.Getpdata()[3],0))+"_att" +m_configure->list1[BM.GetAtt()]+"pv"+m_configure->list2[BM.GetPhase()]+ ".csv' \n");
+            emit sgn_memory_store(diapason+"_k"+QString::number(bitRead(BM.Getpdata()[3],0))+"_att" +m_configure->list1[BM.GetAtt()]+"pv"+m_configure->list2[BM.GetPhase()]);
+            //emit sgn_setcommand(":MMEMory:STORe 'C:/pro/"+diapason+"_k"+QString::number(bitRead(BM.Getpdata()[3],0))+"_att" +m_configure->list1[BM.GetAtt()]+"pv"+m_configure->list2[BM.GetPhase()]+ ".csv' \n");
             //m_analayzer->setcommand(":MMEMory:STORe 'C:/pro/"+diapason+"_k"+QString::number(bitRead(BM.Getpdata()[3],0))+"_att" +m_configure->list1[BM.GetAtt()]+"pv"+m_configure->list2[BM.GetPhase()]+ ".csv' \n");
 
             delay(2000);
@@ -198,6 +199,7 @@ void MainWindow::Range(uint8_t range,uint8_t att , uint8_t pv, uint8_t pm618, ui
                 if(!flag){
                     break;
                 }
+
             }
         }
         BM.SetAtt(BM.GetAtt()+1);

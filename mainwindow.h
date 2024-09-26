@@ -98,6 +98,7 @@ signals:
     void sgn_S12();
     void sgn_S21();
     void sgn_freq_range(int range_number);
+    void sgn_memory_store(QString str);
 public:
     QLabel *status = nullptr;
     Ui::MainWindow *ui;

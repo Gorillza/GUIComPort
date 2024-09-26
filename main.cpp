@@ -93,6 +93,8 @@ int main(int argc, char *argv[])
     //sdadasdad
     QObject::connect(&mainwindow, SIGNAL(sgn_S21()),&analayzer,SLOT(S21()));
     QObject::connect(&mainwindow, SIGNAL(sgn_freq_range(int)),&analayzer,SLOT(SetFreq(int)));
+    QObject::connect(&mainwindow, SIGNAL(sgn_memory_store(QString)),&analayzer,SLOT(Memory_store(QString)));
+
 
 
 //    threadTransmitter.start(QThread::NormalPriority);
