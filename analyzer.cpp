@@ -21,15 +21,36 @@ Analayzer::~Analayzer(){
 void Analayzer::on_applyButton_clicked(){
     updatesettings();
     setportsParameters();
+    delay(1000);
     setcommand(":CALC:TRAC1:MATH:MEM;:CALC:TRAC2:MATH:MEM;:CALC:TRAC3:MATH:MEM;:CALC:TRAC4:MATH:MEM\n");
     delay(1000);
     setcommand(":CALC:TRAC1:MATH:FUNC DIVide;:CALC:TRAC2:MATH:FUNC DIVide;:CALC:TRAC3:MATH:FUNC DIVide;:CALC:TRAC4:MATH:FUNC DIVide\n");
 }
 
+void Analayzer::on_disconnecnt_btn_clicked(){
+    socket->disconnectFromHost();
+}
+
+void Analayzer::on_Connect_btn_clicked(){
+    connectToHost(type);
+}
+
 //Слот для показа GUI и заполнения
-void Analayzer::slt_show(){
+void Analayzer::slt_show(int currnttype){
     showNormal();
     activateWindow();
+    settings.start_f = "4.5E9";
+    settings.end_f = "18E9";
+    settings.poin = "350";
+    settings.aver_count = "20";
+    if(currnttype == 0){
+        settings.power = "LOW";
+        type = Type::Anritsu;
+    }else{
+        type = Type::Planar;
+        settings.power = "0";
+    }
+
     fillPortsParameters();
 }
 
@@ -72,8 +93,6 @@ QByteArray Analayzer::readyReadSlot(){
 //------------------------------------------------------------------------------------
 
 void Analayzer::connectToHost(int currnttype){
-    //socket->disconnectFromHost();
-
     switch (currnttype) {
         case Type::Anritsu:
             //Anritsu
@@ -159,7 +178,9 @@ void Analayzer::connectToHost(int currnttype){
             settings.aver_count = "20";
 
             //6. Запомнить состояние графиков и включить «Данные/Память» для всех графиков.
+            delay(1000);
             setcommand(":CALC:TRAC1:MATH:MEM;:CALC:TRAC2:MATH:MEM;:CALC:TRAC3:MATH:MEM;:CALC:TRAC4:MATH:MEM\n");
+            delay(1000);
             setcommand(":CALC:TRAC1:MATH:FUNC DIVide;:CALC:TRAC2:MATH:FUNC DIVide;:CALC:TRAC3:MATH:FUNC DIVide;:CALC:TRAC4:MATH:FUNC DIVide\n");
 
             //7. ВЧ выход – выкл

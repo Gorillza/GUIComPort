@@ -80,12 +80,12 @@ int main(int argc, char *argv[])
 
     //
     QObject::connect(&mainwindow, SIGNAL(sgn_open_tcpsocket(int)), &analayzer, SLOT(connectToHost(int)));
-    QObject::connect(&mainwindow, SIGNAL(sgn_show_analayzer()),&analayzer,SLOT(slt_show()));
+    QObject::connect(&mainwindow, SIGNAL(sgn_show_analayzer(int)),&analayzer,SLOT(slt_show(int)));
 
     //
     QObject::connect(&mainwindow, SIGNAL(sgn_setcommand(QString)),&analayzer,SLOT(setcommand(QString)));
-    QObject::connect(&mainwindow, SIGNAL(sgn_hold_analayzer(QString)),&analayzer,SLOT(Hold()));
-    QObject::connect(&mainwindow, SIGNAL(sgn_cont_analayzer(QString)),&analayzer,SLOT(Cont()));
+    QObject::connect(&mainwindow, SIGNAL(sgn_hold_analayzer()),&analayzer,SLOT(Hold()));
+    QObject::connect(&mainwindow, SIGNAL(sgn_cont_analayzer()),&analayzer,SLOT(Cont()));
 
     //
     QObject::connect(&mainwindow, SIGNAL(sgn_S12()),&analayzer,SLOT(S12()));

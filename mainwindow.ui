@@ -227,7 +227,7 @@
        <widget class="QTextEdit" name="txtOutput">
         <property name="font">
          <font>
-          <pointsize>16</pointsize>
+          <pointsize>12</pointsize>
          </font>
         </property>
        </widget>
@@ -383,7 +383,7 @@
   <action name="actionC4420">
    <property name="icon">
     <iconset resource="debug/qmake_qmake_immediate.qrc">
-     <normaloff>:/images/analayzer.png</normaloff>:/images/analayzer.png</iconset>
+     <normaloff>:/images/planar.png</normaloff>:/images/planar.png</iconset>
    </property>
    <property name="text">
     <string>C4420</string>

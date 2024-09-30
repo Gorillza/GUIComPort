@@ -47,7 +47,7 @@ public:
 
 public slots:
 
-    void slt_show();
+    void slt_show(int tf);
 
     void connectToHost(int tf);
     void setcommand(QString);
@@ -87,6 +87,10 @@ public slots:
 
 private slots:
     void on_applyButton_clicked();
+
+    void on_disconnecnt_btn_clicked();
+
+    void on_Connect_btn_clicked();
 
 private:
     Settings settings;

@@ -37,13 +37,6 @@ MainWindow::MainWindow(QWidget *parent)
     initActionsConnections();
 
     fillPortsParameters();
-
-//    ui->sendcmd->setEnabled(false);
-//    ui->pushButton->setEnabled(false);
-//    ui->pushButton_2->setEnabled(false);
-//    ui->M95_read->setEnabled(false);
-//    ui->M95_write->setEnabled(false);
-    ui->txtOutput->append("готов к работе");
 }
 
 
@@ -89,7 +82,8 @@ void MainWindow::about()
     QMessageBox::about(this, tr("About Simple Terminal"),
                        tr("The <b>Simple Terminal</b> example demonstrates how to "
                           "use the Qt Serial Port module in modern GUI applications "
-                          "using Qt, with a menu bar, toolbars, and a status bar."));
+                          "using Qt, with a menu bar, toolbars, and a status bar."
+                          "\nConnect whit Svatoslav Molovtsev OOO Radiosignal."));
 }
 
 void MainWindow::clear(){
@@ -107,16 +101,16 @@ void MainWindow::filltxtoutput(const QByteArray data){
 }
 
 
-void MainWindow:: buttonchanger(bool a){
-    ui->actionConnect->setEnabled(a);
-    ui->actionDisconnect->setEnabled(!a);
-    ui->actionConfigure->setEnabled(a);
-    ui->sendcmd->setEnabled(!a);
-    ui->pushButton->setEnabled(!a);
-    ui->pushButton_2->setEnabled(!a);
-    ui->M95_read->setEnabled(!a);
-    ui->M95_write->setEnabled(!a);
-}
+//void MainWindow:: buttonchanger(bool a){
+//    ui->actionConnect->setEnabled(a);
+//    ui->actionDisconnect->setEnabled(!a);
+//    ui->actionConfigure->setEnabled(a);
+//    ui->sendcmd->setEnabled(!a);
+//    ui->pushButton->setEnabled(!a);
+//    ui->pushButton_2->setEnabled(!a);
+//    ui->M95_read->setEnabled(!a);
+//    ui->M95_write->setEnabled(!a);
+//}
 
 //------------------------------------------------------------------------------------------------------------------------
 //Функция для отправки на плату команд
@@ -192,7 +186,6 @@ void MainWindow::Range(uint8_t range,uint8_t att , uint8_t pv, uint8_t pm618, ui
             //m_analayzer->setcommand(":MMEMory:STORe 'C:/pro/"+diapason+"_k"+QString::number(bitRead(BM.Getpdata()[3],0))+"_att" +m_configure->list1[BM.GetAtt()]+"pv"+m_configure->list2[BM.GetPhase()]+ ".csv' \n");
 
             delay(2000);
-            ui->txtOutput->append("'C:/pro/"+diapason+"_k"+QString::number(bitRead(BM.Getpdata()[3],0))+"_att" +m_configure->list1[BM.GetAtt()]+"pv"+m_configure->list2[BM.GetPhase()]+ ".csv'\n");
 
             while(flag){
                 delay(500);
@@ -343,12 +336,12 @@ void MainWindow::on_actionConfigure_triggered()
 
 void MainWindow::on_actionAnritsu_triggered()
 {
-    emit sgn_open_tcpsocket(0);
-    emit sgn_show_analayzer();
+    //emit sgn_open_tcpsocket(0);
+    emit sgn_show_analayzer(0);
 }
 
 void MainWindow::on_actionC4420_triggered()
 {
-    emit sgn_open_tcpsocket(1);
-    emit sgn_show_analayzer();
+    //emit sgn_open_tcpsocket(1);
+    emit sgn_show_analayzer(1);
 }

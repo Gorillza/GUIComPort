@@ -54,7 +54,7 @@ private slots://Функции отображающие информацию и 
     void showStatusMessage(const QString &message);
     void filltxtoutput(const QByteArray a);
 
-    void buttonchanger(bool a);
+//    void buttonchanger(bool a);
 
 private slots://Функция для отправки на плату команд
     void SendMassage(QByteArray d);
@@ -91,7 +91,7 @@ signals:
 
     //Сигналы для взаимодействия с анализатором
     void sgn_open_tcpsocket(int tf);
-    void sgn_show_analayzer();
+    void sgn_show_analayzer(int tf);
     void sgn_setcommand(QString command);
     void sgn_hold_analayzer();
     void sgn_cont_analayzer();
